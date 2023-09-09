@@ -1,0 +1,100 @@
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  font-family: "Times New Roman", Times, serif;
+}
+body {
+  background-color: #f1f1f1;
+}
+.container {
+  width: 500px;
+  margin: 20px auto;
+  background-color: #fefefe;
+  padding: 10px 20px;
+  min-height: 100vh;
+}
+.title {
+  text-align: center;
+  margin-bottom: 20px;
+  font-size: 50px;
+  color: rgb(64 64 64);
+  font-weight: bold;
+}
+.form {
+  border-radius: 6px;
+  padding: 20px;
+  display: flex;
+  align-items: center;
+}
+.input {
+  padding: 10px;
+  border: 1px solid #ddd;
+  border-radius: 6px;
+  flex: 1;
+}
+.input:focus {
+  outline: none;
+}
+input::placeholder {
+  color: #aaa;
+}
+.add-btn {
+  border: none;
+  background-color: #27b4ad;
+  color: white;
+  padding: 10px;
+  border-radius: 6px;
+  margin-left: 10px;
+  cursor: pointer;
+}
+.tasks {
+  margin-top: 20px;
+  border-radius: 6px;
+  padding: 20px;
+}
+.tasks::before {
+  content: "";
+  display: block;
+  width: 100%;
+  height: 1px;
+  background-color: #ccc;
+  margin: -40px 0 40px;
+}
+.tasks .task {
+  padding: 10px;
+  border-radius: 6px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  transition: 0.3s;
+  cursor: pointer;
+  border: 1px solid #ccc;
+}
+.tasks .task:not(:last-child) {
+  margin-bottom: 15px;
+}
+.tasks .task:hover {
+  background-color: #f7f7f7;
+}
+.tasks .task.done {
+  opacity: 0.5;
+}
+.tasks .task button {
+  font-weight: bold;
+  font-size: 16px;
+  background-color: red;
+  color: white;
+  padding: 8px;
+  border-radius: 39px;
+  cursor: pointer;
+  border: 1px solid #ff5454;
+}
+
+div button:not(:first-child) {
+  margin-left: 6px;
+}
+div button:nth-child(2) {
+  background-color: rgb(62 157 120) !important;
+  border: 1px solid #f1f1f1 !important;
+}
