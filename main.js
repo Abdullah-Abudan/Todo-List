@@ -102,11 +102,26 @@ function getTasksFromLocalStorage() {
 }
 
 // Delete a task Function
+// Delete a task Function
 function deleteTask(e) {
   const id = e.target.parentElement.parentElement.getAttribute("data-id");
-  arrayOfTasks = arrayOfTasks.filter((task) => task.id != id);
-  addTaskToPage(arrayOfTasks);
-  addTaskToLocalStorage(arrayOfTasks);
+
+  Swal.fire({
+    title: "Are you sure?",
+    text: "You won't be able to revert this!",
+    icon: "warning",
+    showCancelButton: true,
+    confirmButtonColor: "#3085d6",
+    cancelButtonColor: "#d33",
+    confirmButtonText: "Yes, delete it!",
+  }).then((result) => {
+    if (result.isConfirmed) {
+      arrayOfTasks = arrayOfTasks.filter((task) => task.id != id);
+      Swal.fire("Deleted!", "Your task has been deleted.", "success");
+      addTaskToPage(arrayOfTasks);
+      addTaskToLocalStorage(arrayOfTasks);
+    }
+  });
 }
 
 // Toggle the completed function
@@ -142,6 +157,7 @@ function updateTask(e) {
   }).then((result) => {
     if (result.isConfirmed) {
       task.title = result.value;
+      Swal.fire("Updated!", "Your task has been updated.", "success");
       addTaskToPage(arrayOfTasks);
       addTaskToLocalStorage(arrayOfTasks);
     }
